@@ -24,7 +24,7 @@ cd /gpfs01/home/mbzlld/data/bryant/Maria_1/basecalls
 # SUP basecall the reads
 dorado basecaller \
 	sup@latest \
-        --modified-bases 4mC_5mC,6mA \
+        --modified-bases 6mA \
 	--recursive \
 	--kit-name SQK-RBK114-24 \
 	--models-directory /gpfs01/home/mbzlld/data/dorado_models/dorado_models \
