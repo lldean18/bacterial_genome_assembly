@@ -26,9 +26,10 @@ dorado basecaller \
 	sup@latest \
         --modified-bases 6mA \
 	--recursive \
+	--no-trim \
 	--kit-name SQK-RBK114-24 \
 	--models-directory /gpfs01/home/mbzlld/data/dorado_models/dorado_models \
-       	/gpfs01/home/mbzlld/data/bryant/Maria_1/no_sample_id/20260910_1040_MN49575_FBG32073_6f260b95/pod5 > SUP.bam
+       	/gpfs01/home/mbzlld/data/bryant/Maria_1/no_sample_id/20260910_1040_MN49575_FBG32073_6f260b95/pod5 > SUP_basecalls.bam
 
 
 # unload module
