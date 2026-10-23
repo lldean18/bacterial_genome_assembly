@@ -32,11 +32,20 @@ cd /gpfs01/home/mbzlld/data/bryant/Maria_1/basecalls/demultiplexed
 ##  mv bam_pass ../../../
 ##  cd ../../../
 
+# trim adapters
+for bam in bam_pass/*/*.bam
+do
+dorado trim \
+    --sequencing-kit SQK-RBK114-24 \
+    $bam > ${bam%.*}_trimmed.bam
+done
+
+
 # convert output bams to fastq.gz format
 # -O output quality tags if they exist
 # -t output RG, BC and QT tags to the FASTQ header line
 # then pipe to gzip to compress
-for bam in bam_pass/*/*.bam
+for bam in bam_pass/*/*_trimmed.bam
 do
 samtools bam2fq \
     -O \
