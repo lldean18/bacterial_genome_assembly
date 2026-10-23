@@ -20,18 +20,23 @@ conda activate samtools1.24
 mkdir -p /gpfs01/home/mbzlld/data/bryant/Maria_1/basecalls/demultiplexed
 cd /gpfs01/home/mbzlld/data/bryant/Maria_1/basecalls/demultiplexed
 
-# demultiplex basecalled bam file
-dorado demux \
-    --kit-name SQK-RBK114-24 \
-    --output-dir /gpfs01/home/mbzlld/data/bryant/Maria_1/basecalls/demultiplexed \
-    --emit-summary \
-    /gpfs01/home/mbzlld/data/bryant/Maria_1/basecalls/SUP_basecalls.bam
+##  # demultiplex basecalled bam file
+##  dorado demux \
+##      --kit-name SQK-RBK114-24 \
+##      --output-dir /gpfs01/home/mbzlld/data/bryant/Maria_1/basecalls/demultiplexed \
+##      --emit-summary \
+##      /gpfs01/home/mbzlld/data/bryant/Maria_1/basecalls/SUP_basecalls.bam
+##  
+##  # move the bams out of the million directories structure
+##  cd Maria_1/unknown/20260910_0940_0_FBG32073_6f260b95
+##  mv bam_pass ../../../
+##  cd ../../../
 
 # convert output bams to fastq.gz format
 # -O output quality tags if they exist
 # -t output RG, BC and QT tags to the FASTQ header line
 # then pipe to gzip to compress
-for bam in /gpfs01/home/mbzlld/data/bryant/Maria_1/basecalls/demultiplexed/*.bam
+for bam in bam_pass/*/*.bam
 do
 samtools bam2fq \
     -O \
